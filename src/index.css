@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .heading-primary {
+    @apply font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-blue-900;
+  }
+  
+  .heading-secondary {
+    @apply font-semibold text-2xl md:text-3xl leading-tight text-blue-800 mb-6;
+  }
+  
+  .btn-primary {
+    @apply bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform;
+  }
+  
+  .btn-secondary {
+    @apply bg-blue-800 hover:bg-blue-900 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 transform;
+  }
+  
+  .nav-link {
+    @apply text-blue-900 hover:text-orange-500 font-medium transition-colors duration-300;
+  }
+  
+  .nav-link.active {
+    @apply text-orange-500 font-semibold;
+  }
+
+  .image-hover-effect {
+    @apply relative overflow-hidden rounded-lg transform transition-all duration-500;
+  }
+
+  .image-hover-effect img {
+    @apply w-full h-full object-cover transition-transform duration-700 hover:scale-110;
+  }
+
+  .image-hover-effect::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-blue-900/20 to-orange-500/20 opacity-0 transition-opacity duration-300;
+  }
+
+  .image-hover-effect:hover::after {
+    @apply opacity-100;
+  }
+
+  .card-hover {
+    @apply transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .shine-effect {
+    @apply relative overflow-hidden;
+  }
+
+  .shine-effect::before {
+    content: '';
+    @apply absolute -left-3/4 w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 transition-transform duration-1000;
+  }
+
+  .shine-effect:hover::before {
+    @apply translate-x-[200%];
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
